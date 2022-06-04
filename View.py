@@ -31,11 +31,11 @@ class View:
 
     def draw_sidewall(self, n, m):  # m=0 or 2
         if m == 0:  # 左側
-            e = [-1, -3, -7, -11]
+            e = [-3, -5, -15, -15*3**(1/2)]
         else:  # 右側
-            e = [1, 3, 7, 11]
+            e = [3, 5, 15, 15*3**(1/2)]
         for a in range(len(e)):
-            e[a] = e[a] * self.width / 22
+            e[a] = e[a] * self.width / (30*3**(1/2))
         e1 = e[n]
         e2 = e[n + 1]
         v = [
@@ -55,9 +55,9 @@ class View:
         pygame.draw.polygon(self.screen, (0, 0, 0), v[2:], 1)  # の枠
 
     def draw_centerwall(self, n, m):  # m=1
-        e = [3, 7, 11]
+        e = [5, 15, 15*3**(1/2)]
         for a in range(len(e)):
-            e[a] = e[a] * self.width / 22
+            e[a] = e[a] * self.width / (30*3**(1/2))
         e1 = e[n]
         v = [
             [e1, e1],
@@ -72,9 +72,9 @@ class View:
         pygame.draw.polygon(self.screen, (0, 0, 0), v, 1)
 
     def draw_floor(self, n, m):  # 床
-        e = [1, 3, 7, 11]
+        e = [3, 5, 15, 15*3**(1/2)]
         for a in range(len(e)):
-            e[a] = e[a] * self.width / 22
+            e[a] = e[a] * self.width / (30*3**(1/2))
         e1 = e[n]
         e2 = e[n + 1]
         v = [
